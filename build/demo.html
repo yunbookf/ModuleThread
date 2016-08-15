@@ -1,0 +1,22 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<title>ModuleThread Demo</title>
+		<script src="thread.js"></script>
+	</head>
+    <body>
+    		Done.
+    		<script>
+    			var mt = new ModuleThread(function() {
+				onmessage = function(e) {
+					postMessage("好的：" + e.data);
+				};
+			});
+			mt.postMessage("测试");
+			mt.onMessage = function(e) {
+				alert("接收到消息：【" + e.data + "】");
+			};
+    		</script>
+    </body>
+</html>
